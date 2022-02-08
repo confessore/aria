@@ -18,18 +18,19 @@ pub struct Entity {
 }
 
 pub trait Entity {
-    fn id() -> String;
-    fn name() -> String;
-    fn callsign() -> String;
+    fn id(&self) -> String;
+    fn name(&self) -> String;
+    fn callsign(&self) -> String;
     // x, y, z in relation to a reference celestial body origin
-    fn position() -> Position;
+    fn position(&self) -> Position;
     // the direction in which the bow of the vessel is pointed
-    fn heading() -> Heading;
+    fn heading(&self) -> Heading;
     // direction in which the vessel should be steered
-    fn course() -> Course;
-    fn bearing() -> Bearing;
-    fn track() -> Track;
-    fn route() -> Route;
-    fn orientation() -> Orientation;
-    fn angle() -> Angle;
+    fn course(&self) -> Course;
+    fn bearing(&self) -> Bearing;
+    fn track(&self) -> Track;
+    fn route(&self) -> Route;
+    fn orientation(&self) -> Orientation;
+    // this should just be an int16 or something like that. it only needs min/max : 0/360
+    fn angle(&self) -> Angle;
 }
